@@ -1,1 +1,6 @@
 /* Add application styles & imports to this file! */
+.ng-link {
+    margin-bottom: 1rem;
+    /* border: 2px, solid, fuchsia; */
+    background-color: yellow;
+}
