@@ -1,4 +1,24 @@
 /* Add application styles & imports to this file! */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    outline: none;
+}
+
+header {
+    display: flex;
+    padding-inline: 16px;
+    padding-block: 8px;
+    background-color: #333;
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
 .ng-link {
     margin-bottom: 1rem;
     /* border: 2px, solid, fuchsia; */
