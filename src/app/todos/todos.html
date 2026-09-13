@@ -1,3 +1,10 @@
-<h2>todos works!</h2>
+<h2>ToDo's</h2>
 <!-- <p>{{ todoService.todoItems[0].title }}</p> -->
-<p>{{ todoItems()[0].title }}</p>
+<!-- <p>{{ todoItems()[0].title }}</p> -->
+@for (todo of todoItems(); track $index ) {
+    <p>{{ todo.title }}</p>
+}
+@for (todo of todoItems(); track todo.id ) {
+    <p><b>{{ todo.title }}</b></p>
+    <p>{{ todo.description }}</p>
+}
