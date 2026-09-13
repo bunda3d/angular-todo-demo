@@ -6,5 +6,6 @@
 }
 @for (todo of todoItems(); track todo.id ) {
     <p><b>{{ todo.title }}</b></p>
+    <p>{{ todo.createdAt | date: 'short' }}</p>
     <p>{{ todo.description }}</p>
 }

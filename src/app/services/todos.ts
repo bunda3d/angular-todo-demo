@@ -12,6 +12,7 @@ export class TodosService {
     description: `get week's meal prep supplies`,
     userId: 1,
     completed: false,
+    createdAt: '2026-09-12T20:04:40.991Z',
   },
   {
     id: 1,
@@ -19,6 +20,7 @@ export class TodosService {
     description: `Felix's annual checkup`,
     userId: 1,
     completed: false,
+    createdAt: '2026-09-11T08:04:40.991Z',
   },
 ]
   constructor() {}

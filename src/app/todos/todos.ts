@@ -1,11 +1,12 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { Todo } from '../models/todo.type';
 import { TodosService } from '../services/todos';
 
 @Component({
   selector: 'app-todos',
   standalone: true,
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './todos.html',
   styleUrl: './todos.css',
 })
