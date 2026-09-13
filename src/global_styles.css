@@ -8,6 +8,14 @@ html, body {
     outline: none;
 }
 
+.card-border {
+    border: 2px, dashed, black;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 12px 12px 2px 1px rgba(255, 0, 212, 0.5);
+}
+
 header {
     display: flex;
     padding-inline: 16px;
