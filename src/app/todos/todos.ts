@@ -3,17 +3,19 @@ import { TodosService } from '../services/todos';
 import { Todo } from '../models/todo.type';
 import { catchError } from 'rxjs';
 import { TodoItem } from '../components/todo-item/todo-item';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-todos',
   standalone: true,
-  imports: [TodoItem],
+  imports: [TodoItem, FormsModule],
   templateUrl: './todos.html',
   styleUrl: './todos.css',
 })
 export class Todos implements OnInit {
   todoService = inject(TodosService);
   todoItems = signal<Array<Todo>>([]);
+  searchTerm = signal('');
 
   ngOnInit(): void {
     this.todoService
@@ -29,7 +31,7 @@ export class Todos implements OnInit {
       this.todoItems.set(todos);
     });
   }
-  
+
   // when todo checkbox changes
   updateTodoItem(todoItem: Todo) {
     this.todoItems.update((todos) => {

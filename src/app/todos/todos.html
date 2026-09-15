@@ -3,7 +3,12 @@
 @if (!todoItems().length) {
     <h3>Loading...</h3>
 }
-<label>Filter To-Dos</label>
+
+<form>
+    <label>Filter ToDos </label>
+    <input name="searchTerm" [(ngModel)]="searchTerm" placeholder="Search ToDos..." />
+</form>
+
 <ul class="todos">
     <hr>
     @for (todo of todoItems(); track todo.id ) {
