@@ -1,0 +1,18 @@
+.todos {
+  list-style: none;
+  padding-left: 0;
+}
+
+.todos__item-header {
+  display: flex;
+  align-items: center;
+}
+
+.todos__item input[type="checkbox"] {
+  margin-left: 0 !important;
+}
+
+.ml {
+  margin-left: .5rem;
+  font-size: 1.25rem;
+}

@@ -1,12 +1,13 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { DatePipe } from '@angular/common';
-import { Todo } from '../models/todo.type';
 import { TodosService } from '../services/todos';
+import { DatePipe, NgIf } from '@angular/common';
+import { Todo } from '../models/todo.type';
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-todos',
   standalone: true,
-  imports: [DatePipe],
+  imports: [DatePipe, NgIf],
   templateUrl: './todos.html',
   styleUrl: './todos.css',
 })
@@ -15,8 +16,17 @@ export class Todos implements OnInit {
   todoItems = signal<Array<Todo>>([]);
 
   ngOnInit(): void {
-    console.log(this.todoService.todoItems);
-    // set value of signal to output of service
-    this.todoItems.set(this.todoService.todoItems);
+    this.todoService
+    .getTodosFromApi()
+    .pipe(
+      catchError((err) => {
+        console.log(err);
+        throw err;
+      })
+    )
+    .subscribe((todos) => {
+      // set signal to returned API values
+      this.todoItems.set(todos);
+    });
   }
 }
