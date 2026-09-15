@@ -10,7 +10,7 @@ import { Counter } from '../components/counter/counter';
   styleUrl: './home.css',
 })
 export class Home {
-  homeMessage = signal('Welcome to your TO-DOs app');
+  homeMessage = signal("While you're here why not click some counter buttons? ");
   keyUpHandler(event: KeyboardEvent) {
     console.log(`user pressed the ${event.key} key. `)
   }

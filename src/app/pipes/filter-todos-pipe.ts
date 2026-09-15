@@ -1,12 +1,20 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Todo } from '../models/todo.type';
 
 @Pipe({
   name: 'filterTodos',
+  standalone: true,
 })
 export class FilterTodosPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(todos: Todo[], searchTerm: string): Todo[] {
+    if (!searchTerm) {
+      return todos; // return full todos list if no search term
+    }
+    const text = searchTerm.toLowerCase();
+    return todos.filter(todo => {
+      return todo.title.toLowerCase().includes(text);
+    });
   }
 
 }

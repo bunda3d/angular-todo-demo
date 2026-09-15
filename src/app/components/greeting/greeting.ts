@@ -1,9 +1,10 @@
 import { Component, input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-greeting',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './greeting.html',
   styleUrl: './greeting.css',
 })
