@@ -1,1 +1,18 @@
-<p>todo-item works!</p>
+
+<li appHighlightCompletedTodo [isCompleted]="todo().completed" class="todos__item">
+    <label for="todo-{{todo().id}}">
+        <div class="todos__item-header">
+            <input 
+                id="todo-{{todo().id}}" 
+                type="checkbox" 
+                [checked]="todo().completed" 
+                (change)="this.todoClicked()"
+            />
+            <b class="ml">{{ todo().title | titlecase }}</b>
+        </div>
+        <p>
+            <b>{{ todo().createdAt | date: 'short' }}</b> | {{ todo().description }}
+        </p>
+        <hr>
+    </label>
+</li>

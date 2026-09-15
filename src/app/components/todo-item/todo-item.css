@@ -1,0 +1,12 @@
+
+.todos__item-header {
+    display: flex;
+    align-items: center;
+}
+.ml {
+    margin-left: .5rem;
+    font-size: 1.25rem;
+}
+    .todos__item-header input[type="checkbox"] {
+    margin-left: 0 !important;
+}

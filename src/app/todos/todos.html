@@ -1,20 +1,12 @@
-<h2>ToDo's</h2>
+<h2>ToDo's List</h2>
 
-<p *ngIf="!todoItems().length">Loading...</p>
+@if (!todoItems().length) {
+    <h3>Loading...</h3>
+}
+<label>Filter To-Dos</label>
 <ul class="todos">
     <hr>
     @for (todo of todoItems(); track todo.id ) {
-    <li class="todos__item">
-        <label for="todo-{{todo.id}}">
-            <div class="todos__item-header">
-                <input id="todo-{{todo.id}}" type="checkbox" [value]="todo.completed" />
-                <b class="ml">{{ todo.title }}</b>
-            </div>
-            <p>
-                <b>{{ todo.createdAt | date: 'short' }}</b> | {{ todo.description }}
-            </p>
-            <hr>
-        </label>
-    </li>
+        <app-todo-item (todoToggled)="updateTodoItem($event)" [todo]="todo" />
     }
 </ul>

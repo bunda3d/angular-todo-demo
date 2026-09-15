@@ -1,13 +1,13 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { TodosService } from '../services/todos';
-import { DatePipe, NgIf } from '@angular/common';
 import { Todo } from '../models/todo.type';
 import { catchError } from 'rxjs';
+import { TodoItem } from '../components/todo-item/todo-item';
 
 @Component({
   selector: 'app-todos',
   standalone: true,
-  imports: [DatePipe, NgIf],
+  imports: [TodoItem],
   templateUrl: './todos.html',
   styleUrl: './todos.css',
 })
@@ -27,6 +27,21 @@ export class Todos implements OnInit {
     .subscribe((todos) => {
       // set signal to returned API values
       this.todoItems.set(todos);
+    });
+  }
+  
+  // when todo checkbox changes
+  updateTodoItem(todoItem: Todo) {
+    this.todoItems.update((todos) => {
+      return todos.map(todo => {
+        if (todo.id === todoItem.id) {
+          return {
+            ... todo,
+            completed: !todo.completed,
+          };
+        }
+        return todo;
+      });
     });
   }
 }
